@@ -129,7 +129,7 @@ export default function HeroRunners() {
           className={"hero-runner" + (runner.reverse ? " is-reversed" : "") + (carrying ? " is-carrying" : "")}
           style={{
             width: `clamp(82px, ${12 * runner.scale}vw, ${156 * runner.scale}px)`,
-            bottom: `${1.5 + runner.lane}%`,
+            "--run-lane": `${1.5 + runner.lane}%`,
             "--run-duration": `${runner.duration}s`,
             "--run-delay": `${runner.delay}s`,
             "--run-cadence": `${runner.cadence}ms`,
