@@ -237,7 +237,7 @@ export default function Home() {
           </a>
           <nav className="topbar-nav" aria-label="Navegación de la invitación">
             <a href="#detalles">La fecha</a>
-            <a href="#vota">¿Qué será?</a>
+            <a href="#vota">Tu corazonada</a>
             <a href="#ubicacion">Dirección</a>
           </nav>
         </header>
@@ -303,9 +303,9 @@ export default function Home() {
         <SceneBalloons />
         <div className="scene-content vote-content">
           <div className="vote-card reveal-on-scroll">
-            <span className="vote-topper">ELIGE UNA OPCIÓN</span>
+            <span className="vote-topper">HAZ TU PREDICCIÓN</span>
             <h2 id="vote-title">¿Qué crees<br /><em>que será?</em></h2>
-            <p className="vote-intro">Ven a descubrirlo y a celebrar juntos esta dulce sorpresa.</p>
+            <p className="vote-intro">Déjate llevar por tu intuición y descubre qué piensa la familia.</p>
 
             {!choice ? (
               <div className="choice-grid">
@@ -318,6 +318,7 @@ export default function Home() {
                   <span className="choice-art"><img src="/images/globos-nino.png" alt="" /></span>
                   <span className="choice-copy">
                     <span className="choice-name">Niño</span>
+                    <span className="choice-hint">Mi corazonada es azul</span>
                   </span>
                   <span className="choice-shine" aria-hidden="true" />
                 </button>
@@ -330,6 +331,7 @@ export default function Home() {
                   <span className="choice-art"><img src="/images/globos-nina.png" alt="" /></span>
                   <span className="choice-copy">
                     <span className="choice-name">Niña</span>
+                    <span className="choice-hint">Mi corazonada es rosa</span>
                   </span>
                   <span className="choice-shine" aria-hidden="true" />
                 </button>
@@ -339,12 +341,12 @@ export default function Home() {
                 <div className="results-thanks">
                   <span className="thanks-seal"><Check size={18} /></span>
                   <div>
-                    <strong>¡Gracias por elegir!</strong>
+                    <strong>¡Tu corazonada quedó guardada!</strong>
                     <span>Gracias por ser parte de la sorpresa.</span>
                   </div>
                 </div>
                 <div className="results-topline">
-                  <span>{localVotesOnly ? "Tu elección" : "Así va la votación familiar"}</span>
+                  <span>{localVotesOnly ? "Tu predicción" : "Así va la votación familiar"}</span>
                   <span>{counts.total} {counts.total === 1 ? "voto" : "votos"}</span>
                 </div>
                 <div className="result-row">
@@ -376,8 +378,17 @@ export default function Home() {
               </div>
             )}
 
+            {!choice && (
+              <p className="vote-note">
+                {ready
+                  ? localVotesOnly
+                    ? "Elige una opción para ver tu predicción."
+                    : "Elige una opción para ver cómo va la votación de la familia."
+                  : "Preparando la sorpresa…"}
+              </p>
+            )}
             {choice && localVotesOnly && (
-              <p className="vote-note">Tu elección queda guardada solo en este dispositivo.</p>
+              <p className="vote-note">Vista previa: esta predicción queda guardada solo en este dispositivo.</p>
             )}
             {voteError && <p className="vote-error" role="status">{voteError}</p>}
           </div>
@@ -404,7 +415,7 @@ export default function Home() {
             </a>
             <div className="location-welcome">
               <Heart size={15} fill="currentColor" />
-              <span>Ven a festejar juntos<br />y a descubrir esta dulce sorpresa.</span>
+              <span>Ven con tus mejores corazonadas<br />y prepárate para celebrar.</span>
             </div>
           </div>
           <div className="location-footer">

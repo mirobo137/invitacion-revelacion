@@ -390,7 +390,7 @@ button {
 
 .hero-runner {
   position: absolute;
-  bottom: var(--run-lane, 1.5%);
+  bottom: 1.5%;
   left: -180px;
   display: block;
   width: clamp(104px, 12vw, 156px);
@@ -845,6 +845,12 @@ button {
   line-height: 1;
 }
 
+.choice-hint {
+  color: #88776c;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+}
+
 .choice-shine {
   position: absolute;
   z-index: 0;
@@ -1295,17 +1301,9 @@ button:focus-visible {
 
   .event-bear {
     right: 1%;
-    bottom: clamp(28px, 4.5svh, 42px);
+    bottom: 2%;
     width: clamp(86px, 26vw, 128px);
     max-height: 17vh;
-  }
-
-  .hero-runway {
-    bottom: clamp(38px, 6svh, 54px);
-  }
-
-  .hero-runner {
-    bottom: calc(var(--run-lane, 1.5%) + clamp(38px, 6svh, 54px));
   }
 
   .ambient-cluster {
@@ -1412,6 +1410,11 @@ button:focus-visible {
     font-size: 25px;
   }
 
+  .choice-hint {
+    font-size: 8px;
+    letter-spacing: 0.04em;
+  }
+
   .vote-content > .next-scene-link {
     margin-top: 22px;
   }
@@ -1483,6 +1486,10 @@ button:focus-visible {
 
   .choice-name {
     font-size: 23px;
+  }
+
+  .choice-hint {
+    font-size: 7px;
   }
 
   .location-footer span:last-child {
